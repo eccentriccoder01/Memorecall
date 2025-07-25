@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memorecall - Premium Card Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="background-effects">
+            <div class="floating-particles"></div>
+            <div class="gradient-orb orb-1"></div>
+            <div class="gradient-orb orb-2"></div>
+            <div class="gradient-orb orb-3"></div>
+        </div>
+        
+        <header class="game-header">
+            <div class="logo">
+                <i class="fas fa-brain"></i>
+                <h1>MEMORECALL</h1>
+            </div>
+            <div class="difficulty-selector">
+                <button class="difficulty-btn active" data-difficulty="easy">
+                    <i class="fas fa-leaf"></i>
+                    <span>Easy</span>
+                    <small>4x4</small>
+                </button>
+                <button class="difficulty-btn" data-difficulty="medium">
+                    <i class="fas fa-fire"></i>
+                    <span>Medium</span>
+                    <small>6x6</small>
+                </button>
+                <button class="difficulty-btn" data-difficulty="hard">
+                    <i class="fas fa-skull"></i>
+                    <span>Hard</span>
+                    <small>8x8</small>
+                </button>
+            </div>
+        </header>
+
+        <div class="game-stats">
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-label">Time</span>
+                    <span class="stat-value" id="timer">00:00</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-mouse"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-label">Moves</span>
+                    <span class="stat-value" id="moves">0</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-label">Score</span>
+                    <span class="stat-value" id="score">0</span>
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <div class="stat-icon">
+                    <i class="fas fa-percentage"></i>
+                </div>
+                <div class="stat-content">
+                    <span class="stat-label">Accuracy</span>
+                    <span class="stat-value" id="accuracy">100%</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="game-board-container">
+            <div class="game-board" id="gameBoard">
+                <!-- Cards will be dynamically generated here -->
+            </div>
+        </div>
+
+        <div class="game-controls">
+            <button class="control-btn new-game-btn" id="newGameBtn">
+                <i class="fas fa-refresh"></i>
+                <span>New Game</span>
+            </button>
+            <button class="control-btn pause-btn" id="pauseBtn">
+                <i class="fas fa-pause"></i>
+                <span>Pause</span>
+            </button>
+            <button class="control-btn hint-btn" id="hintBtn">
+                <i class="fas fa-lightbulb"></i>
+                <span>Hint</span>
+                <small class="hint-count">3</small>
+            </button>
+        </div>
+
+        <div class="progress-bar-container">
+            <div class="progress-bar" id="progressBar"></div>
+            <span class="progress-text" id="progressText">0% Complete</span>
+        </div>
+    </div>
+
+    <!-- Victory Modal -->
+    <div class="modal-overlay" id="victoryModal">
+        <div class="modal victory-modal">
+            <div class="modal-content">
+                <div class="victory-animation">
+                    <i class="fas fa-trophy"></i>
+                    <div class="confetti"></div>
+                </div>
+                <h2>Congratulations!</h2>
+                <p>You've mastered the memory challenge!</p>
+                <div class="final-stats">
+                    <div class="final-stat">
+                        <i class="fas fa-clock"></i>
+                        <span>Time: <span id="finalTime">00:00</span></span>
+                    </div>
+                    <div class="final-stat">
+                        <i class="fas fa-mouse"></i>
+                        <span>Moves: <span id="finalMoves">0</span></span>
+                    </div>
+                    <div class="final-stat">
+                        <i class="fas fa-trophy"></i>
+                        <span>Score: <span id="finalScore">0</span></span>
+                    </div>
+                    <div class="final-stat">
+                        <i class="fas fa-star"></i>
+                        <span>Rating: <span id="finalRating">★★★★★</span></span>
+                    </div>
+                </div>
+                <div class="modal-actions">
+                    <button class="modal-btn play-again-btn" id="playAgainBtn">
+                        <i class="fas fa-refresh"></i>
+                        Play Again
+                    </button>
+                    <button class="modal-btn close-btn" id="closeModalBtn">
+                        <i class="fas fa-times"></i>
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Pause Modal -->
+    <div class="modal-overlay" id="pauseModal">
+        <div class="modal pause-modal">
+            <div class="modal-content">
+                <div class="pause-icon">
+                    <i class="fas fa-pause"></i>
+                </div>
+                <h2>Game Paused</h2>
+                <p>Take a moment to strategize your next moves</p>
+                <div class="modal-actions">
+                    <button class="modal-btn resume-btn" id="resumeBtn">
+                        <i class="fas fa-play"></i>
+                        Resume
+                    </button>
+                    <button class="modal-btn restart-btn" id="restartBtn">
+                        <i class="fas fa-refresh"></i>
+                        Restart
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
