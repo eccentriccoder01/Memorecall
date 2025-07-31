@@ -176,6 +176,21 @@ body {
     background-clip: text;
 }
 
+.title-with-image {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-left: -24px;
+}
+
+.logo-m-letter {
+  height: 8rem;
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: -24px;
+  transform: translateY(-10px);
+}
+
 .difficulty-selector {
     display: flex;
     gap: 0.5rem;
