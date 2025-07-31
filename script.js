@@ -414,7 +414,6 @@ class LuxeMemoryGame {
         finalMoves.textContent = this.moves;
         finalScore.textContent = this.calculateScore().toLocaleString();
         
-        // Calculate rating based on performance
         const rating = this.calculateRating();
         finalRating.textContent = '★'.repeat(rating) + '☆'.repeat(5 - rating);
         
@@ -478,14 +477,12 @@ const styleSheet = document.createElement('style');
 styleSheet.textContent = shakeKeyframes;
 document.head.appendChild(styleSheet);
 
-// Initialize the game when DOM is loaded
 document.addEventListener('DOMContentLoaded', () => {
     new LuxeMemoryGame();
 });
 
 // Add some additional visual enhancements
 document.addEventListener('DOMContentLoaded', () => {
-    // Add dynamic background particle generation
     const createParticle = () => {
         const particle = document.createElement('div');
         particle.style.position = 'fixed';
@@ -516,16 +513,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Create particles periodically
     setInterval(createParticle, 200);
-    
-    // Add mouse trail effect
+
     let mouseTrail = [];
     document.addEventListener('mousemove', (e) => {
         mouseTrail.push({ x: e.clientX, y: e.clientY, time: Date.now() });
-        
-        // Keep only recent positions
         mouseTrail = mouseTrail.filter(pos => Date.now() - pos.time < 500);
-        
-        // Create trail particle
         if (Math.random() < 0.3) {
             const trailParticle = document.createElement('div');
             trailParticle.style.position = 'fixed';
