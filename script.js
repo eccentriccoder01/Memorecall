@@ -181,44 +181,34 @@ class LuxeMemoryGame {
         const cardEl = document.createElement('div');
         cardEl.className = 'card';
         cardEl.dataset.id = card.id;
-        
+
         cardEl.innerHTML = `
-            <div class="card-face card-back">
-                <i class="fas fa-question"></i>
-            </div>
-            <div class="card-face card-front">
-                <i class="${card.icon}"></i>
+            <div class="card-inner">
+                <div class="card-face card-back">
+                    <i class="fas fa-question"></i>
+                </div>
+                <div class="card-face card-front">
+                    <i class="${card.icon}"></i>
+                </div>
             </div>
         `;
-        
+
         cardEl.addEventListener('click', () => this.flipCard(card.id));
-        
+
         return cardEl;
     }
     
     flipCard(cardId) {
         if (this.isPaused || this.flippedCards.length >= 2) return;
-        
+
         const card = this.cards[cardId];
         const cardElement = document.querySelector(`[data-id="${cardId}"]`);
-        
+
         if (card.isFlipped || card.isMatched) return;
-        
-        // Flip the card
+
         card.isFlipped = true;
         cardElement.classList.add('flipped');
         this.flippedCards.push(card);
-        
-        // Play flip sound effect (visual feedback)
-        cardElement.style.transform = 'rotateY(180deg) scale(1.05)';
-        setTimeout(() => {
-            cardElement.style.transform = 'rotateY(180deg)';
-        }, 150);
-        
-        if (this.flippedCards.length === 2) {
-            this.attempts++;
-            this.checkMatch();
-        }
     }
     
     checkMatch() {
