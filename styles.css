@@ -347,16 +347,19 @@ body {
 
 .game-board.easy {
     grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 1fr;
     max-width: 500px;
 }
 
 .game-board.medium {
     grid-template-columns: repeat(6, 1fr);
+    grid-auto-rows: 1fr;
     max-width: 700px;
 }
 
 .game-board.hard {
     grid-template-columns: repeat(8, 1fr);
+    grid-auto-rows: 1fr;
     max-width: 900px;
 }
 
@@ -366,8 +369,17 @@ body {
     position: relative;
     cursor: pointer;
     transition: var(--transition);
-    /* transform-style: preserve-3d; */
+    transform-style: preserve-3d;
+    perspective: 1000px;
     min-height: 80px;
+    height: 100%;
+}
+
+.game-board {
+    position: relative;
+}
+.card {
+    flex: 1 0 auto;
 }
 
 /* .card:hover {
@@ -378,6 +390,10 @@ body {
     transform: rotateY(180deg);
 } */
 
+.card.flipped {
+    z-index: 10;
+}
+
 .card.flipped .card-inner { 
     transform: rotateY(180deg);
 }
@@ -385,7 +401,7 @@ body {
 .card-inner {
     width: 100%;
     height: 100%;
-    position: relative;
+    position: absolute;
     transform-style: preserve-3d;
     transition: transform 0.6s;
 }

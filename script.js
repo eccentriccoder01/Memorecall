@@ -209,6 +209,11 @@ class LuxeMemoryGame {
         card.isFlipped = true;
         cardElement.classList.add('flipped');
         this.flippedCards.push(card);
+
+        if (this.flippedCards.length === 2) {
+            this.attempts++;
+            this.checkMatch();
+        }
     }
     
     checkMatch() {
