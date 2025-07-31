@@ -9,7 +9,7 @@
 ## 🚀 Live Demo
 
 Experience Memorecall live here: 
-👉 [![**Memorecall**](https://img.shields.io/badge/View-Live%20Demo-black?style=for-the-badge)](https://eccentriccoder01.github.io/Memorecall)
+👉 [![**Memorecall**](https://img.shields.io/badge/View-Live%20Demo-f7c41e?style=for-the-badge)](https://eccentriccoder01.github.io/Memorecall)
 
  <div align="center">
  <p>
