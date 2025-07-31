@@ -383,19 +383,13 @@ body {
     flex: 1 0 auto;
 }
 
-/* .card:hover {
-    transform: translateY(-5px) scale(1.05);
-} */
-
-/* .card.flipped {
-    transform: rotateY(180deg);
-} */
-
 .card.flipped {
+    transform: translateY(-80px);
     z-index: 10;
 }
 
-.card.flipped .card-inner { 
+.card.flipped .card-inner {
+    transform: translateY(-80px); 
     transform: rotateY(180deg);
 }
 
