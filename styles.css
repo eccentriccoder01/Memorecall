@@ -349,6 +349,7 @@ body {
     grid-template-columns: repeat(4, 1fr);
     grid-auto-rows: 1fr;
     max-width: 500px;
+    aspect-ratio: 1 / 1;
 }
 
 .game-board.medium {
@@ -364,14 +365,15 @@ body {
 }
 
 .card {
+    aspect-ratio: 1;
+    border-radius: var(--border-radius);
     position: relative;
-    aspect-ratio: 1 / 1;
-    width: 100%;
-    height: 100%;
-    transform-style: preserve-3d;
-    perspective: 1000px;
     cursor: pointer;
     transition: var(--transition);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+    min-height: 80px;
+    /* height: 100%; */
 }
 
 .game-board {
@@ -380,6 +382,14 @@ body {
 .card {
     flex: 1 0 auto;
 }
+
+/* .card:hover {
+    transform: translateY(-5px) scale(1.05);
+} */
+
+/* .card.flipped {
+    transform: rotateY(180deg);
+} */
 
 .card.flipped {
     z-index: 10;
