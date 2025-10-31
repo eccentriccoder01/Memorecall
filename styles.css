@@ -9,35 +9,35 @@
     --secondary-dark: #1a1a1a;
     --accent-dark: #2a2a2a;
     --surface-dark: #1e1e1e;
-    
+
     --primary-gold: #d4af37;
     --accent-gold: #f4d03f;
     --deep-gold: #b8860b;
-    
+
     --primary-emerald: #50c878;
     --accent-emerald: #6fd08a;
     --deep-emerald: #3e9c60;
-    
+
     --primary-ruby: #e0115f;
     --accent-ruby: #ff1f5a;
     --deep-ruby: #c20e4f;
-    
+
     --primary-sapphire: #0f52ba;
     --accent-sapphire: #1e6fff;
     --deep-sapphire: #0c4a9f;
-    
+
     --text-primary: #ffffff;
     --text-secondary: #b0b0b0;
     --text-muted: #666666;
-    
+
     --gradient-luxury: linear-gradient(135deg, var(--primary-gold), var(--accent-gold), var(--primary-emerald));
     --gradient-dark: linear-gradient(135deg, var(--primary-dark), var(--secondary-dark));
     --gradient-surface: linear-gradient(135deg, var(--surface-dark), var(--accent-dark));
-    
+
     --shadow-luxury: 0 20px 40px rgba(212, 175, 55, 0.3);
     --shadow-dark: 0 10px 30px rgba(0, 0, 0, 0.5);
     --shadow-surface: 0 5px 15px rgba(0, 0, 0, 0.3);
-    
+
     --border-radius: 12px;
     --border-radius-large: 20px;
     --transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -78,16 +78,21 @@ body {
     width: 100%;
     height: 100%;
     background: radial-gradient(2px 2px at 20px 30px, rgba(212, 175, 55, 0.3), transparent),
-                radial-gradient(2px 2px at 40px 70px, rgba(80, 200, 120, 0.3), transparent),
-                radial-gradient(1px 1px at 90px 40px, rgba(224, 17, 95, 0.3), transparent),
-                radial-gradient(1px 1px at 130px 80px, rgba(15, 82, 186, 0.3), transparent);
+        radial-gradient(2px 2px at 40px 70px, rgba(80, 200, 120, 0.3), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(224, 17, 95, 0.3), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(15, 82, 186, 0.3), transparent);
     background-size: 200px 200px;
     animation: float 20s infinite linear;
 }
 
 @keyframes float {
-    0% { transform: translateY(0px); }
-    100% { transform: translateY(-200px); }
+    0% {
+        transform: translateY(0px);
+    }
+
+    100% {
+        transform: translateY(-200px);
+    }
 }
 
 .gradient-orb {
@@ -125,10 +130,23 @@ body {
 }
 
 @keyframes drift {
-    0%, 100% { transform: translateY(0px) translateX(0px); }
-    25% { transform: translateY(-20px) translateX(20px); }
-    50% { transform: translateY(-40px) translateX(-10px); }
-    75% { transform: translateY(-20px) translateX(-20px); }
+
+    0%,
+    100% {
+        transform: translateY(0px) translateX(0px);
+    }
+
+    25% {
+        transform: translateY(-20px) translateX(20px);
+    }
+
+    50% {
+        transform: translateY(-40px) translateX(-10px);
+    }
+
+    75% {
+        transform: translateY(-20px) translateX(-20px);
+    }
 }
 
 /* Header */
@@ -161,8 +179,15 @@ body {
 }
 
 @keyframes pulse {
-    0%, 100% { transform: scale(1); }
-    50% { transform: scale(1.1); }
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
 }
 
 .logo h1 {
@@ -177,18 +202,18 @@ body {
 }
 
 .title-with-image {
-  display: flex;
-  align-items: center;
-  gap: 0.2rem;
-  margin-left: -24px;
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    margin-left: -24px;
 }
 
 .logo-m-letter {
-  height: 8rem;
-  display: inline-block;
-  vertical-align: middle;
-  margin-right: -24px;
-  transform: translateY(-10px);
+    height: 8rem;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: -24px;
+    transform: translateY(-10px);
 }
 
 .difficulty-selector {
@@ -392,6 +417,7 @@ body {
 .game-board {
     position: relative;
 }
+
 .card {
     flex: 1 0 auto;
 }
@@ -402,7 +428,7 @@ body {
 }
 
 .card.flipped .card-inner {
-    transform: translateY(-80px); 
+    transform: translateY(-60px);
     transform: rotateY(180deg);
 }
 
@@ -429,6 +455,8 @@ body {
 }
 
 .card.matched {
+    display: flex;
+    margin: -4.5rem -8rem;
     position: absolute;
     opacity: 0.6;
     transform: scale(0.9);
@@ -440,8 +468,15 @@ body {
 }
 
 @keyframes hint-glow {
-    0%, 100% { box-shadow: 0 0 0 rgba(212, 175, 55, 0.5); }
-    50% { box-shadow: 0 0 20px rgba(212, 175, 55, 0.8); }
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 rgba(212, 175, 55, 0.5);
+    }
+
+    50% {
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.8);
+    }
 }
 
 .card-back {
@@ -533,7 +568,7 @@ body {
 }
 
 .control-btn:active {
-    transform: translateY(0);
+    transform: translateY(-1);
 }
 
 .control-btn i {
@@ -542,8 +577,8 @@ body {
 
 .hint-count {
     position: absolute;
-    top: -8px;
-    right: -8px;
+    top: 1px;
+    right: 2px;
     background: var(--primary-ruby);
     color: white;
     font-size: 0.7rem;
@@ -583,8 +618,13 @@ body {
 }
 
 @keyframes shimmer {
-    0% { transform: translateX(-100%); }
-    100% { transform: translateX(100%); }
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
 }
 
 .progress-text {
@@ -651,8 +691,15 @@ body {
 }
 
 @keyframes trophy-bounce {
-    0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-10px); }
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
 }
 
 .confetti {
@@ -662,7 +709,7 @@ body {
     transform: translateX(-50%);
     width: 200px;
     height: 200px;
-    background: 
+    background:
         radial-gradient(circle at 20% 20%, var(--primary-gold) 2px, transparent 2px),
         radial-gradient(circle at 80% 80%, var(--primary-emerald) 2px, transparent 2px),
         radial-gradient(circle at 40% 40%, var(--primary-ruby) 2px, transparent 2px);
@@ -671,8 +718,15 @@ body {
 }
 
 @keyframes confetti-fall {
-    0% { transform: translateX(-50%) translateY(-100px) rotate(0deg); opacity: 1; }
-    100% { transform: translateX(-50%) translateY(100px) rotate(360deg); opacity: 0; }
+    0% {
+        transform: translateX(-50%) translateY(-100px) rotate(0deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(100px) rotate(360deg);
+        opacity: 0;
+    }
 }
 
 .pause-icon {
@@ -758,72 +812,86 @@ body {
     .game-container {
         padding: 1rem;
     }
-    
+
     .game-header {
         flex-direction: column;
         gap: 1rem;
         text-align: center;
     }
-    
+
+    .card.flipped {
+        transform: translateY(-60px);
+        z-index: 10;
+    }
+
     .logo h1 {
         font-size: 1.5rem;
     }
-    
+
     .difficulty-selector {
         width: 100%;
         justify-content: center;
     }
-    
+
     .game-stats {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .stat-card {
         flex-direction: column;
         text-align: center;
     }
-    
+
     .game-board {
         padding: 1rem;
         gap: 0.5rem;
     }
-    
+
     .card {
         min-height: 60px;
     }
-    
+
     .card-face {
         font-size: 1.5rem;
     }
-    
+
     .card-front i,
     .card-back i {
         font-size: 1.8rem;
     }
-    
+
+    .card.matched {
+        display: flex;
+        margin: -3.5rem -5rem;
+        position: absolute;
+        opacity: 0.6;
+        transform: scale(0.9);
+        pointer-events: none;
+    }
+
     .game-controls {
         flex-wrap: wrap;
         justify-content: center;
     }
-    
+
     .control-btn {
         padding: 0.8rem 1.5rem;
         font-size: 0.9rem;
     }
-    
+
     .modal {
         padding: 2rem;
         margin: 1rem;
     }
-    
+
     .modal h2 {
         font-size: 2rem;
     }
-    
+
     .final-stats {
         grid-template-columns: 1fr;
     }
-    
+
     .modal-actions {
         flex-direction: column;
     }
@@ -833,26 +901,31 @@ body {
     .game-board.easy {
         max-width: 320px;
     }
-    
+
     .game-board.medium {
         max-width: 350px;
     }
-    
+
     .game-board.hard {
         max-width: 380px;
     }
-    
+
     .card {
         min-height: 50px;
     }
-    
+
     .stat-value {
         font-size: 1.4rem;
     }
-    
+
     .control-btn {
         padding: 0.7rem 1rem;
         font-size: 0.8rem;
+    }
+
+    .card.flipped {
+        transform: translateY(-60px);
+        z-index: 10;
     }
 }
 
